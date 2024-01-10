@@ -14,7 +14,7 @@ RUN apt-get update && \
 
 # Create the 'julien' user with root privileges
 RUN useradd -m -s /bin/bash julien && \
-    echo "julien:julien91494611" | chpasswd && \
+    echo "julien:password" | chpasswd && \
     usermod -aG root julien
 
 # Switch to the 'julien' user
@@ -23,7 +23,7 @@ USER julien
 RUN jupyter lab --generate-config
 
 # Set the password for JupyterLab
-RUN echo "c.ServerApp.password = 'sha1:11c55acc3dcc24bb1c3517f05f3f4e78fd1d734e'" > /home/julien/.jupyter/jupyter_lab_config.py
+RUN echo "c.ServerApp.password = 'sha1:5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8'" > /home/julien/.jupyter/jupyter_lab_config.py
 
 # Install Jupyter Lab and Python packages
 WORKDIR /home/julien
