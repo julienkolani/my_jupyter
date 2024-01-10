@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  jupyterlab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jupyterlab_image:latest  
+    container_name: jupyterlab_container  
+    volumes:
+      - /home:/home/julien/host 
+    ports:
+      - "8004:8000"
